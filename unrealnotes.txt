@@ -1,0 +1,5 @@
+like the ease/speed of getting into a playable proj compared to unity, create third person demo and you can run around already and it all just works, 3rd person controller and spawn point already created as actors
+also the editor is nicer, both aesthetically and the controls/navigation ability of the mouse, cam speed on scroll wheel and all the camera move controls are really nice and slick
+actor selection tools top left, e to switch to rotate, r for scale, the gizmos are nicer, size/pos/rot scale options also in top left! very nice
+
+alt key and drag for instant duplication
