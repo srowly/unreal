@@ -3,3 +3,36 @@ also the editor is nicer, both aesthetically and the controls/navigation ability
 actor selection tools top left, e to switch to rotate, r for scale, the gizmos are nicer, size/pos/rot scale options also in top left! very nice
 
 alt key and drag for instant duplication
+
+geomtry bush is awesome ? additive and subtractivem builds levels so quick with 3d actors, even stairs!
+
+live coding is good but if many changes to header file probbaly recompile from vs, also when starting a new session always refresh from vs, seems slightly slow?
+
+same variables as c# except FString for unreal strings as basic c++ is char
+
+when using ue log with an f string you need to give it an asterix 
+
+funny comment - capitilized variables name is sickening ! e.g. Tick(float DeltaTime) not a fan deltaTime is much nicer
+
+macros vs functions ? 
+n Unity, you write Debug.Log($"Player health is {hp}");. The downside is that even if you disable logging in your release build, C# still has to format that string,
+ allocate memory for it, and call the function (which then immediately returns).
+
+Treat macros as code generators, not logic executors.
+
+    Use Functions for game logic, math, and anything that needs to happen while the game is running.
+
+    Use Macros (or rather, use Unreal's built-in macros) when you need to strip code out of final builds (like debug lines), 
+    handle cross-platform boilerplate, or do things that require information about the source file itself.
+
+    Unreal C++ Macros vs. Functions
+
+    The Core Difference: Macros are literal copy-paste text replacements that happen before the code even compiles. Functions are compiled blocks of logic that execute at runtime.
+
+    Type Safety: Functions are strictly type-checked (just like your C# methods). Macros completely bypass type checking because they just blindly paste text.
+
+    Debugging: You can step into a function line-by-line in Visual Studio or Rider. You cannot step into a macro.
+
+    Performance: Macros have zero function-call overhead (because the code is injected directly into the line), but heavy use can bloat your compiled file size.
+
+    Unity/C# Equivalent: There isn't one. C# #define is only for conditional compilation (#if UNITY_EDITOR), whereas Unreal C++ macros (UE_LOG, TEXT()) are literally writing or formatting code for you behind the scenes before the compiler steps in.
