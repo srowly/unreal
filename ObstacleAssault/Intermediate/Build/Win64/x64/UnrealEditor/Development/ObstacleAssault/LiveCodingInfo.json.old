@@ -25,6 +25,8 @@
 		],
 		"Module.ObstacleAssault.2.cpp.obj": [
 			"EnvQueryContext_Player.gen.cpp.obj",
+			"MovingPlatform.gen.cpp.obj",
+			"ObstacleAssault.init.gen.cpp.obj",
 			"ObstacleAssaultCharacter.gen.cpp.obj",
 			"ObstacleAssaultGameMode.gen.cpp.obj",
 			"ObstacleAssaultPlayerController.gen.cpp.obj",
@@ -44,6 +46,7 @@
 			"SideScrollingSoftPlatform.gen.cpp.obj",
 			"SideScrollingStateTreeUtility.gen.cpp.obj",
 			"SideScrollingUI.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
 			"ObstacleAssault.cpp.obj",
 			"ObstacleAssaultCharacter.cpp.obj",
 			"ObstacleAssaultGameMode.cpp.obj",
@@ -70,9 +73,6 @@
 			"CombatLifeBar.cpp.obj",
 			"AnimNotify_EndDash.cpp.obj",
 			"PlatformingCharacter.cpp.obj",
-			"MovingPlatform.gen.cpp.obj",
-			"ObstacleAssault.init.gen.cpp.obj",
-			"PerModuleInline.gen.cpp.obj",
 			"MovingPlatform.cpp.obj"
 		],
 		"Module.ObstacleAssault.3.cpp.obj": [

@@ -36,3 +36,11 @@ Treat macros as code generators, not logic executors.
     Performance: Macros have zero function-call overhead (because the code is injected directly into the line), but heavy use can bloat your compiled file size.
 
     Unity/C# Equivalent: There isn't one. C# #define is only for conditional compilation (#if UNITY_EDITOR), whereas Unreal C++ macros (UE_LOG, TEXT()) are literally writing or formatting code for you behind the scenes before the compiler steps in.
+
+
+
+member variables go in the header file
+in unreal you can use UPROPERTY Macro above it with (EDITANYWHERE) argument, this lets us edit the variable in the unreal engine inspector, VisibleAnywhere is similar but just makes it viewable
+in the hiearchy
+
+similar to serialize field private in unity c# for editanywhere but private in script, 
