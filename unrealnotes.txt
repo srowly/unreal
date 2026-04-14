@@ -51,3 +51,14 @@ tick unreals version of unitys update, begin play = start
 
 eject from game is cool, lets you breaK from the player controller and fly around whilst the game is running - very nice
 
+blueprint child classes of our classes let us add basic behaviour to stop us repeating having to add components to an instance of our class, seems really good for
+creating the visual assets of an actor
+
+:: scope resolution operator access class functions, . operator access instance functions
+
+assets used from fab library, fab library is really great
+Construction Site VOL. 1 - Supply and Material Props https://www.fab.com/listings/ba44a508-bfa5-444c-bbf4-69e8b5dee530
+Survival Character Free - https://www.fab.com/listings/11d20d01-b764-4936-8163-cb20d05c369e
+Stylized Eastern Village - https://www.fab.com/listings/9841fee2-683f-4e68-adb8-bafec270a251
+
+"play from here" feature is awesome, really nice quality of life

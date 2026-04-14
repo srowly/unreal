@@ -8,6 +8,7 @@
 
 class UInputMappingContext;
 class UUserWidget;
+class UInputAction;
 
 /**
  *  Basic PlayerController class for a third person game
@@ -35,10 +36,18 @@ protected:
 	/** Pointer to the mobile controls widget */
 	TObjectPtr<UUserWidget> MobileControlsWidget;
 
+	UPROPERTY(EditAnywhere, Category = "Input|Input Mappings")
+	UInputAction* ResetAction;
+
+	FTransform RespawnTransform;
+
 	/** Gameplay initialization */
 	virtual void BeginPlay() override;
 
 	/** Input mapping context setup */
 	virtual void SetupInputComponent() override;
 
+public:
+	void SetRespawnTransform(const FTransform&);
+	void ResetPlayer();
 };

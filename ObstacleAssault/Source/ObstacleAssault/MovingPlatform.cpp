@@ -18,6 +18,8 @@ void AMovingPlatform::BeginPlay()
 	/*
 	UE_LOG(LogTemp, Display, TEXT("Member Vector Values: %f %f %f"), StartPosition.X, StartPosition.Y, StartPosition.Z);
 	*/
+
+	StartLocation = GetActorLocation();
 }
 
 /// <summary>
@@ -25,9 +27,28 @@ void AMovingPlatform::BeginPlay()
 /// </summary>
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	FVector currentLocation = GetActorLocation();
-	currentLocation += (Velocity * DeltaTime);
-	SetActorLocation(currentLocation);
+	float distance = GetDistanceMoved();
+	if (distance >= MoveDistance)
+	{
+		float overshoot = distance - MoveDistance;
+		UE_LOG(LogTemp, Display, TEXT("%s  by: %f"), *GetName(), overshoot);
+		FVector moveDirection = Velocity.GetSafeNormal();
+		FVector targetLocation = StartLocation + moveDirection * MoveDistance;
+		SetActorLocation(targetLocation);
+		StartLocation = targetLocation;
+		Velocity = -Velocity;
+	}
+	else
+	{
+		FVector currentLocation = GetActorLocation();
+		currentLocation += (Velocity * DeltaTime);
+		SetActorLocation(currentLocation);
+	}
+}
+
+float AMovingPlatform::GetDistanceMoved()
+{
+	return FVector::Dist(GetActorLocation(), StartLocation);
 }
 
 /// <summary>
@@ -35,7 +56,8 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 /// </summary>
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	FRotator currentRotation = GetActorRotation();
+	FRotator rotationToAdd = RotationVelocity * DeltaTime;
+	AddActorLocalRotation(rotationToAdd);
 }
 
 // Called every frame

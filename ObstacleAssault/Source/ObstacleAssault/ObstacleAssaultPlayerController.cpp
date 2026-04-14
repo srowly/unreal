@@ -1,13 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-
 #include "ObstacleAssaultPlayerController.h"
+#include "InputAction.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
 #include "InputMappingContext.h"
 #include "Blueprint/UserWidget.h"
 #include "ObstacleAssault.h"
 #include "Widgets/Input/SVirtualJoystick.h"
+#include "GameFramework/GameModeBase.h"
+#include "EnhancedInputComponent.h"
 
 void AObstacleAssaultPlayerController::BeginPlay()
 {
@@ -29,7 +31,16 @@ void AObstacleAssaultPlayerController::BeginPlay()
 			UE_LOG(LogObstacleAssault, Error, TEXT("Could not spawn mobile controls widget."));
 
 		}
+	}
 
+	AGameModeBase* GameMode = GetWorld()->GetAuthGameMode();
+	if (GameMode)
+	{
+		AActor* PlayerStart = GameMode->FindPlayerStart(this);
+		if (PlayerStart)
+		{
+			RespawnTransform = PlayerStart->GetActorTransform();
+		}
 	}
 }
 
@@ -58,4 +69,24 @@ void AObstacleAssaultPlayerController::SetupInputComponent()
 			}
 		}
 	}
+
+	if (UEnhancedInputComponent* EIC = Cast<UEnhancedInputComponent>(InputComponent))
+	{
+		EIC->BindAction(ResetAction, ETriggerEvent::Started, this, &AObstacleAssaultPlayerController::ResetPlayer);
+	}
+}
+
+void AObstacleAssaultPlayerController::ResetPlayer()
+{
+	if (APawn* MyPawn = GetPawn())
+	{
+		MyPawn->SetActorTransform(RespawnTransform);
+	}
+}
+
+
+void AObstacleAssaultPlayerController::SetRespawnTransform(const FTransform& NewRespawn)
+{
+	// save the new respawn transform
+	RespawnTransform = NewRespawn;
 }
