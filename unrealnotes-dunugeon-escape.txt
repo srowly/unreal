@@ -1,0 +1,12 @@
+skyatmosphere in combination with direcitonal light, very impressive, sun appears in sky
+even moving the sun down it goes sunset colours
+
+
+exponential height fog, skylight, volumetic cloud, all combine to make a really nice looking scene, this is the
+king of thing it feels like unity is missing, its a game engine, tis meant to take care of these constant, repetitive, easy things for you
+
+starter content, ease of adding in via the menu and all the available materials and stuff to use, really nice, again a good for a game engine
+
+again so impressed with the geometry brushing, marking as hollow is so helpful, selecitng materials when creating to paint them 
+
+Modular game modes are nice, very useful 
