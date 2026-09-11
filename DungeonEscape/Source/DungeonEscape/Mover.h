@@ -21,10 +21,18 @@ protected:
 	virtual void BeginPlay() override;
 
 	FVector StartLocation;
+	FVector TargetLocation;
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UPROPERTY(EditAnywhere)
+	FVector MoveOffset;
+
+	UPROPERTY(EditAnywhere)
+	float MoveTime;
+
+	UPROPERTY(EditAnywhere)
+	bool ShouldMove;
 };
